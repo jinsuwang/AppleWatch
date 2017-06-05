@@ -20,7 +20,7 @@ public class TestFactoryTest {
         TraversalHelper.inorderTraversalRecur(root);
         System.out.println();
 
-        List<Integer> inorderList = TraversalHelper.inorderTraversalIter(root);
+        List<Integer> inorderList = new TraversalHelper().inorderTraversalIter(root);
         System.out.println(inorderList);
 
         System.out.println();

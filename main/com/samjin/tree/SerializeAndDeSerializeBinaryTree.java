@@ -2,6 +2,7 @@ package com.samjin.tree;
 
 import com.samjin.util.TreeNode;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -57,18 +58,28 @@ public class SerializeAndDeSerializeBinaryTree {
      * convert a inorder traversal string version of a tree to a binary tree.
      * @return the root of tree
      */
-    public TreeNode deserialzie(String str){
+    public TreeNode deserialize(String str){
 
         if(str == null || str.isEmpty() ) return null;
 
         // convert String to queue for futhur usage.
         Queue<String> queue = new LinkedList<String>();
-        for(Character c : str.toCharArray()){
-            queue.add(c.toString());
+        queue.addAll(Arrays.asList(str.split("")));
+
+        return buildTree(queue);
+    }
+
+    private TreeNode buildTree(Queue<String> queue) {
+
+        String val = queue.poll();
+        if(val.equals("#")){
+            return null;
+        }else{
+            TreeNode curr = new TreeNode(val);
+            curr.left = buildTree(queue);
+            curr.right = buildTree(queue);
+            return curr;
         }
-
-
-        return null;
     }
 
 }

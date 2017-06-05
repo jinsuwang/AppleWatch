@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * Created by sjjin on 5/29/17.
  */
-public class TraversalHelper {
+public class TraversalHelper<T> {
 
     public static void preorderTraversalRecur(TreeNode root){
         if(root == null) return;
@@ -31,8 +31,8 @@ public class TraversalHelper {
     }
 
 
-    public static List<Integer> inorderTraversalIter(TreeNode root){
-        List<Integer> res = new ArrayList<>();
+    public List<T> inorderTraversalIter(TreeNode root){
+        List<T> res = new ArrayList<T>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
 
         while( !stack.isEmpty() || root != null ){
@@ -41,7 +41,7 @@ public class TraversalHelper {
                 root = root.left;
             }else{
                 TreeNode curr = stack.pop();
-                res.add((Integer)curr.val);
+                res.add((T) curr.val);
                 root = curr.right;
             }
         }

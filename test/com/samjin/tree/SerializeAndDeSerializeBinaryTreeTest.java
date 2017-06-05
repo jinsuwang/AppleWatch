@@ -1,6 +1,7 @@
 package com.samjin.tree;
 
 import com.samjin.util.TestFactory;
+import com.samjin.util.TraversalHelper;
 import com.samjin.util.TreeNode;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,18 +23,15 @@ public class SerializeAndDeSerializeBinaryTreeTest {
     }
 
     @Test
-    public void serialize() throws Exception {
-        System.out.println(driver.serialize(root));
-    }
-
-    @Test
     public void serializeRecur(){
         System.out.println(driver.serializeRecur(root));
     }
 
     @Test
-    public void deserialzie() throws Exception {
-
+    public void deserialize() throws Exception {
+        TreeNode node = TestFactory.getTestIntegerBST();
+        String str = driver.serializeRecur(node);
+        TreeNode newNode = driver.deserialize(str);
+        System.out.println( new TraversalHelper().inorderTraversalIter(newNode) );
     }
-
 }
