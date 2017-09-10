@@ -9,14 +9,14 @@ import java.util.List;
  */
 public class MergeKSortedList {
 
-    public ListNode merge( List<ListNode> lists ){
-        if( lists.size() == 0 ) return null;
-        return mergeHelper( lists, 0, lists.size() - 1 );
+    public ListNode mergeKLists( ListNode[] lists ){
+        if( lists.length == 0 ) return null;
+        return mergeHelper( lists, 0, lists.length - 1 );
     }
 
-    private ListNode mergeHelper(List<ListNode> lists, int start, int end) {
+    private ListNode mergeHelper( ListNode[] lists, int start, int end) {
         if( start >= end ){
-            return lists.get(start);
+            return lists[start];
         }
 
         int mid = start + ( end - start ) / 2;

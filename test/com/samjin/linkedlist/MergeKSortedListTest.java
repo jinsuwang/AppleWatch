@@ -17,18 +17,6 @@ public class MergeKSortedListTest {
     @Test
     public void merge() throws Exception {
 
-        MergeKSortedList driver = new MergeKSortedList();
-
-        ListNode l1 = TestFactory.getNormalLinkedlist();
-        ListNode l2 = TestFactory.getNormalLinkedlist();
-        ListNode l3 = TestFactory.getNormalLinkedlist();
-
-        List<ListNode> lists = new ArrayList<>();
-        lists.add(l1); lists.add(l2); lists.add(l3);
-
-        ListNode res = driver.merge(lists);
-        MyPrinter.printLinkedlist(res);
-
     }
 
 }
