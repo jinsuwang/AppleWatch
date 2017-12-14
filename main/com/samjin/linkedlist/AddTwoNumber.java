@@ -35,7 +35,7 @@ public class AddTwoNumber {
 
             currNode.next = new ListNode(curr);
             currNode = currNode.next;
-            l1.next = l1;
+            l1 = l1.next;
         }
 
         while(l2 != null){
@@ -45,8 +45,11 @@ public class AddTwoNumber {
 
             currNode.next = new ListNode(curr);
             currNode = currNode.next;
-            l2.next = l2;
+            l2 = l2.next;
         }
+
+        if( tmp != 0 ) currNode.next = new ListNode(tmp);
+
         return dummy.next;
     }
 }
