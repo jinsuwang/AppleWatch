@@ -1,6 +1,6 @@
 package com.samjin.sortandsearch;
 
-import java.util.Random;
+import java.util.Arrays;
 
 /**
  * Created by sjjin on 12/11/17.
@@ -9,45 +9,45 @@ public class SortingAlgorithm {
 
     public static int[] bubbleSort(int[] arr){
         return null;
+
     }
 
     public static int[] mergeSort(int[] arr){
         return null;
     }
 
-    public static void quickSort(int[] A){
-        quickSortHelper(A, 0, A.length - 1);
+    public static void quickSort(int[] arr){
+        quickSortHelper(arr, 0, arr.length - 1 );
     }
 
-    private static void quickSortHelper(int[] A, int start, int end) {
-
+    private static void quickSortHelper(int[] arr, int start, int end) {
         if( start >= end ) return;
+//        Random ran = new Random();
+//        int pIndex = ran.nextInt(end - start + 1) + start;
+        int pIndex = start + (end - start)/2;
+        int pivot = arr[pIndex];
 
-        Random random = new Random();
-
-        // int value between 0 (inclusive) and n (exclusive).
-        int pIndex = random.nextInt( end - start + 1 ) + start;
-        int pivot = A[pIndex];
+        System.out.println("pIndex: " + pIndex + " pivot: " + pivot + " " + Arrays.toString(arr));
 
         int left = start;
         int right = end;
 
-        while( left <= right ){
-            while( left <= right && A[left] < pivot ) left++ ;
-            while( left <= right && A[right] > pivot ) right--;
+        while(left <= right){
+            while(left <= right && arr[left] < pivot) left++;
+            while(left <= right && arr[right] > pivot ) right--;
 
-            // Swap
-            if( left <= right ){
-                int tmp = A[left];
-                A[left] = A[right];
-                A[right] = tmp;
-
-                left++; right--;
+            // time to swap
+            if(left <= right) {
+                int tmp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = tmp;
+                left++;
+                right--;
             }
-        }
 
-        quickSortHelper(A, start, right);
-        quickSortHelper(A, left, end);
+        }
+        quickSortHelper(arr, start, right);
+        quickSortHelper(arr, left, end);
     }
 
 }

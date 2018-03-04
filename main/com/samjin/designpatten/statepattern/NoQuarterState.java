@@ -1,6 +1,5 @@
 package com.samjin.designpatten.statepattern;
 
-import com.sun.jmx.mbeanserver.NamedObject;
 
 /**
  * Created by sjjin on 5/31/17.
