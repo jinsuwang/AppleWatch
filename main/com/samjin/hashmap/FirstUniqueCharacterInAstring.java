@@ -1,4 +1,4 @@
-package com.samjin.hapmap;
+package com.samjin.hashmap;
 
 /**
  * Created by sjjin on 9/5/17.

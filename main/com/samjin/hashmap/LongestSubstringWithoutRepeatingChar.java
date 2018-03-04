@@ -1,9 +1,4 @@
-package com.samjin.hapmap;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+package com.samjin.hashmap;
 
 /**
  * Created by sjjin on 8/25/17.

@@ -1,7 +1,6 @@
-package com.samjin.hapmap;
+package com.samjin.hashmap;
 
 import java.util.HashSet;
-import java.util.Random;
 
 /**
  * Created by sjjin on 9/6/17.

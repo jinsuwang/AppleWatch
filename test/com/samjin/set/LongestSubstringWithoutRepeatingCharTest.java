@@ -1,6 +1,6 @@
 package com.samjin.set;
 
-import com.samjin.hapmap.LongestSubstringWithoutRepeatingChar;
+import com.samjin.hashmap.LongestSubstringWithoutRepeatingChar;
 import org.junit.Assert;
 import org.junit.Test;
 
