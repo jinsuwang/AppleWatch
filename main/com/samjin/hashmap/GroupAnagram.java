@@ -1,4 +1,4 @@
-package com.samjin.hapmap;
+package com.samjin.hashmap;
 
 import java.util.*;
 import java.util.stream.Collector;
