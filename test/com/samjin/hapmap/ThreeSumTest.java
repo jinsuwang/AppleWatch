@@ -1,6 +1,6 @@
 package com.samjin.hapmap;
 
-import com.samjin.hashmap.ThreeSum;
+import com.samjin.array.ThreeSum;
 import org.junit.Before;
 import org.junit.Test;
 
