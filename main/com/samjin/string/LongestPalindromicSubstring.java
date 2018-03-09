@@ -8,28 +8,44 @@ public class LongestPalindromicSubstring {
 
     /* Time Limit Exceeded */
     public String longestPalindrome(String s) {
+        if (s == null) {
+            return null;
+        }
 
-        if(s == null || s.isEmpty()) return s;
+        String ret = null;
 
-        String ret = "";
+        int len = s.length();
+        int max = 0;
+        for (int i = 0; i < len; i++) {
+            String s1 = getLongest(s, i, i);
+            String s2 = getLongest(s, i, i + 1);
 
-        for(int i = 0; i < s.length(); i++){
-
-            int j = i; int k = i;
-
-            while( j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k) ){
-                j--; k++;
+            if (s1.length() > max) {
+                max = Math.max(max, s1.length());
+                ret = s1;
             }
-            if( s.substring(j, k+1).length() > ret.length() )  ;
 
-            j = i; k = i + 1;
-            while( j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k) ){
-                String staging = s.substring(j,k+1);
-                if( staging.length() > ret.length() ) ret = staging;
-                j--; k++;
+            if (s2.length() > max) {
+                max = Math.max(max, s2.length());
+                ret = s2;
             }
         }
 
         return ret;
+    }
+
+    public String getLongest(String s, int left, int right) {
+        int len = s.length();
+        while (left >= 0 && right < len) {
+            // when i is in the center.
+            if (s.charAt(left) != s.charAt(right)) {
+                break;
+            }
+
+            left--;
+            right++;
+        }
+
+        return s.substring(left + 1, right);
     }
 }

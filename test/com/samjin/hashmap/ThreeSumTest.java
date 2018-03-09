@@ -1,4 +1,4 @@
-package com.samjin.hapmap;
+package com.samjin.hashmap;
 
 import com.samjin.array.ThreeSum;
 import org.junit.Before;
