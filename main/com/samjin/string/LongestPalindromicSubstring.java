@@ -6,7 +6,6 @@ package com.samjin.string;
 public class LongestPalindromicSubstring {
 
 
-    /* Time Limit Exceeded */
     public String longestPalindrome(String s) {
         if (s == null) {
             return null;

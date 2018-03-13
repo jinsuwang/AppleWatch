@@ -28,6 +28,11 @@ public class SerializeAndDeSerializeBinaryTreeTest {
     }
 
     @Test
+    public void serializeIter(){
+        System.out.println(driver.serialize(root));
+    }
+
+    @Test
     public void deserialize() throws Exception {
         TreeNode node = TestFactory.getTestIntegerBST();
         String str = driver.serializeRecur(node);

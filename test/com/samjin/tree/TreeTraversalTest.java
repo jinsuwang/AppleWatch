@@ -39,6 +39,7 @@ public class TreeTraversalTest {
 
     @Test
     public void preorderTraversalIter() throws Exception {
+        System.out.println(tt.preorderTraversalIter(root));
     }
 
     @Test
