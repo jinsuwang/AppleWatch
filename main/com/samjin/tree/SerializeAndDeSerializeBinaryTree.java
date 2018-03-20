@@ -15,7 +15,7 @@ public class SerializeAndDeSerializeBinaryTree {
      * Serialize a tree to a string
      * @return String representation of tree
      */
-    public String serialize(com.samjin.util.TreeNode root){
+    public String serializeIter(com.samjin.util.TreeNode root){
         StringBuilder sb = new StringBuilder();
         Stack<TreeNode> stack = new Stack<>();
         while( !stack.isEmpty() || root != null ){
@@ -33,7 +33,7 @@ public class SerializeAndDeSerializeBinaryTree {
     }
 
 
-    public String serializeRecur(TreeNode root) {
+    public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         buildString( root, sb );
         return sb.toString();
@@ -44,10 +44,10 @@ public class SerializeAndDeSerializeBinaryTree {
      */
     private static void buildString(TreeNode node, StringBuilder sb) {
         if( node == null ){
-            sb.append("#");
+            sb.append("#,");
             return;
         }else {
-            sb.append(node.val);
+            sb.append(node.val+",");
             buildString(node.left, sb);
             buildString(node.right,sb);
         }
@@ -63,7 +63,7 @@ public class SerializeAndDeSerializeBinaryTree {
 
         // convert String to queue for futhur usage.
         Queue<String> queue = new LinkedList<String>();
-        queue.addAll(Arrays.asList(str.split("")));
+        queue.addAll(Arrays.asList(str.split(",")));
 
         return buildTree(queue);
     }
@@ -71,10 +71,11 @@ public class SerializeAndDeSerializeBinaryTree {
     private TreeNode buildTree(Queue<String> queue) {
 
         String val = queue.poll();
+
         if(val.equals("#")){
             return null;
         }else{
-            TreeNode curr = new TreeNode(val);
+            TreeNode curr = new TreeNode(Integer.parseInt(val));
             curr.left = buildTree(queue);
             curr.right = buildTree(queue);
             return curr;

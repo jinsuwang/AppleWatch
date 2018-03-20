@@ -16,26 +16,33 @@ public class SerializeAndDeSerializeBinaryTreeTest {
     SerializeAndDeSerializeBinaryTree driver;
     TreeNode root;
 
+
+    TreeNode l1 = new TreeNode(-1);
+    TreeNode l2 = new TreeNode(0);
+    TreeNode l3 = new TreeNode(1);
+
     @Before
     public void setUp() throws Exception {
         driver = new SerializeAndDeSerializeBinaryTree();
-        root = TestFactory.getTestIntegerBST();
-    }
 
-    @Test
-    public void serializeRecur(){
-        System.out.println(driver.serializeRecur(root));
+        l1.left = l2;
+        l1.right = l3;
+
     }
 
     @Test
     public void serializeIter(){
-        System.out.println(driver.serialize(root));
+        System.out.println(driver.serializeIter(l1));
+    }
+
+    @Test
+    public void serialize(){
+        System.out.println(driver.serialize(l1));
     }
 
     @Test
     public void deserialize() throws Exception {
-        TreeNode node = TestFactory.getTestIntegerBST();
-        String str = driver.serializeRecur(node);
+        String str = driver.serialize(l1);
         TreeNode newNode = driver.deserialize(str);
         System.out.println( new TraversalHelper().inorderTraversalIter(newNode) );
     }

@@ -2,7 +2,7 @@ package com.samjin.tree;
 
 import com.samjin.util.TreeNode;
 
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by sjjin on 9/9/17.
@@ -74,6 +74,32 @@ public class TreeTraversal {
 
     public String postorderTraversalIter(TreeNode root){
         return null;
+    }
+
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if(root == null) return res;
+
+        Queue<TreeNode> curr = new LinkedList<>();
+        curr.add(root);
+
+        while(!curr.isEmpty()){
+
+            List<Integer> level = new ArrayList<>();
+            int size = curr.size();
+
+            for(int i = 0; i < size; i++ ){
+                TreeNode node = curr.poll();
+                level.add((Integer)node.val);
+                if(node.left != null) curr.add(node.left);
+                if(node.right != null) curr.add(node.right);
+            }
+
+            res.add(level);
+        }
+        return res;
     }
 
 }
