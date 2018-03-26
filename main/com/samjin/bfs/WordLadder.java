@@ -1,8 +1,6 @@
 package com.samjin.bfs;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class WordLadder {
 
@@ -15,6 +13,8 @@ public class WordLadder {
 
         wordQueue.add(beginWord);
         disQueue.add(1);
+        Set<String> wordDict = new HashSet<>(wordList);
+
 
         while(!wordQueue.isEmpty()){
             String currWord = wordQueue.poll();
@@ -24,14 +24,14 @@ public class WordLadder {
                 for (char c = 'a'; c <= 'z'; c++) {
                     currCharArr[i] = c;
                     String newWord = new String(currCharArr);
-                    if(wordList.contains(newWord)){
+                    if(wordDict.contains(newWord)){
                         System.out.println("Enqueue: " + newWord);
                         if(newWord.equals(endWord)){
                             return dist+1;
                         }
                         wordQueue.add(newWord);
                         disQueue.add(dist+1);
-                        wordList.remove(newWord);
+                        wordDict.remove(newWord);
                     }
                 }
             }
