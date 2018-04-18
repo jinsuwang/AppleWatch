@@ -36,4 +36,13 @@ public class EncodeAndDecodeUrl {
         }
         return map1.get(n);
     }
+
+
+    // Random number
+    public String longToShort(String url){
+        // randomly generate one String.
+        // check if exists in DB
+        // if yes, save it and if no, re-generate string.
+        return "";
+    }
 }
