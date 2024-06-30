@@ -1,7 +1,6 @@
 package com.samjin.tree;
 
 import com.samjin.util.TestFactory;
-import com.samjin.util.TreeNode;
 import org.junit.Test;
 
 public class ValidateBinarySearchTreeTest {

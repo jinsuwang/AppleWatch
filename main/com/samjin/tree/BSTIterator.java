@@ -1,8 +1,5 @@
 package com.samjin.tree;
 
-import com.samjin.util.TreeNode;
-
-import java.util.Arrays;
 import java.util.Stack;
 
 public class BSTIterator {

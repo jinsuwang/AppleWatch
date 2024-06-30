@@ -1,9 +1,7 @@
 package com.samjin.tree;
 
-import com.samjin.util.TreeNode;
-
 public class LowestCommonAncestorOfaBinarySearchTree {
-    public TreeNode<Integer> lowestCommonAncestor2(TreeNode<Integer> root, TreeNode<Integer> p, TreeNode<Integer> q) {
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
 
         if(root == null) return root;
 
@@ -18,7 +16,7 @@ public class LowestCommonAncestorOfaBinarySearchTree {
     }
 
 
-    public TreeNode lowestCommonAncestor(TreeNode<Integer> root, TreeNode<Integer> p, TreeNode<Integer> q) {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null) return null;
         if(root == p || root == q) return root;
 

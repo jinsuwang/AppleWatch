@@ -28,6 +28,6 @@ class SnapshotArray {
     }
 
     public int get(int index, int snapId) {
-        return map.get(index).floorEntry(snapId).getValue()
+        return map.get(index).floorEntry(snapId).getValue();
     }
 }

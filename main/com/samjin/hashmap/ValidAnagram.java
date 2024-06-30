@@ -4,16 +4,23 @@ public class ValidAnagram {
 
 
     public boolean isAnagram(String s, String t) {
-        if(s == null || t == null) return false;
-        if(s.length() != t.length()) return false;
-        int[] arr = new int[256];
+        if (s == null || t == null) return false;
+        if (s.length() != t.length()) return false;
 
-        for(char c : s.toCharArray()) arr[c]++;
-        for(char c : t.toCharArray()) arr[c]--;
+        int[] arr = new int[26];
 
-        for(int i : arr){
-            if(i != 0) return false;
+        for (int i = 0; i < s.length(); i++){
+            arr[s.charAt(i) - 'a']++;
         }
+
+        for (int i = 0; i < t.length(); i++){
+            arr[t.charAt(i) - 'a']--;
+        }
+
+        for (int e: arr){
+            if (e != 0) return false;
+        }
+
         return true;
     }
 

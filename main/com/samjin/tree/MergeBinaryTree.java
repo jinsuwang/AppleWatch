@@ -1,7 +1,5 @@
 package com.samjin.tree;
 
-import com.samjin.util.TreeNode;
-
 /**
  * Created by sjjin on 9/10/17.
  */

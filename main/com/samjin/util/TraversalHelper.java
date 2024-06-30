@@ -1,5 +1,7 @@
 package com.samjin.util;
 
+import com.samjin.tree.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -31,8 +33,8 @@ public class TraversalHelper<T> {
     }
 
 
-    public List<T> inorderTraversalIter(TreeNode root){
-        List<T> res = new ArrayList<T>();
+    public List<Integer> inorderTraversalIter(TreeNode root){
+        List<Integer> res = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
 
         while( !stack.isEmpty() || root != null ){
@@ -41,7 +43,7 @@ public class TraversalHelper<T> {
                 root = root.left;
             }else{
                 TreeNode curr = stack.pop();
-                res.add((T) curr.val);
+                res.add(curr.val);
                 root = curr.right;
             }
         }

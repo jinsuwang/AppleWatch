@@ -2,11 +2,8 @@ package com.samjin.tree;
 
 import com.samjin.util.MyPrinter;
 import com.samjin.util.TestFactory;
-import com.samjin.util.TreeNode;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by sjjin on 12/11/17.

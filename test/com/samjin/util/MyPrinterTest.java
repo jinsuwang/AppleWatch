@@ -1,5 +1,6 @@
 package com.samjin.util;
 
+import com.samjin.tree.TreeNode;
 import org.junit.Before;
 import org.junit.Test;
 

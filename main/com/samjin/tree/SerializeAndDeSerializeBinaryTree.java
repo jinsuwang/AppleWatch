@@ -1,6 +1,5 @@
 package com.samjin.tree;
 
-import com.samjin.util.TreeNode;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,7 +14,7 @@ public class SerializeAndDeSerializeBinaryTree {
      * Serialize a tree to a string
      * @return String representation of tree
      */
-    public String serializeIter(com.samjin.util.TreeNode root){
+    public String serializeIter(TreeNode root){
         StringBuilder sb = new StringBuilder();
         Stack<TreeNode> stack = new Stack<>();
         while( !stack.isEmpty() || root != null ){
