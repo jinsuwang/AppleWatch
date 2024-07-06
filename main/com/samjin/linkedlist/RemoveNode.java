@@ -5,7 +5,9 @@ package com.samjin.linkedlist;
 public class RemoveNode {
 
     public ListNode removeElements(ListNode head, int val) {
+
         if (head == null) return head;
+
         ListNode dummy = new ListNode(-1);
         dummy.next = head;
 
@@ -13,9 +15,9 @@ public class RemoveNode {
         ListNode curr = head;
 
         while (curr != null){
-            if (curr.val == val) {
+            if (curr.val == val){
                 prev.next = curr.next;
-            }else {
+            }else{
                 prev = curr;
             }
             curr = curr.next;

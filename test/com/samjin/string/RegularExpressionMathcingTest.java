@@ -2,11 +2,9 @@ package com.samjin.string;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class RegularExpressionMathcingTest {
 
-    RegularExpressionMathcing ins = new RegularExpressionMathcing();
+    RegularExpressionMatching ins = new RegularExpressionMatching();
 
     @Test
     public void isMatch() {

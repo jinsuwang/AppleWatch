@@ -6,16 +6,17 @@ public class reverseLinkedlist {
 
     public ListNode reverseList(ListNode head) {
 
-        if (head == null) return null;
-        ListNode prev = null;
         ListNode curr = head;
+        ListNode prev = null;
+        ListNode tmp;
 
-        while(curr != null){
-            ListNode tmp = curr.next;
+        while( curr != null ){
+            tmp = curr.next;
             curr.next = prev;
             prev = curr;
             curr = tmp;
         }
+
         return prev;
     }
 }

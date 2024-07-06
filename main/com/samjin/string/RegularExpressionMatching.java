@@ -1,6 +1,6 @@
 package com.samjin.string;
 
-public class RegularExpressionMathcing {
+public class RegularExpressionMatching {
 
 
     //        String s = "aaaaaa";

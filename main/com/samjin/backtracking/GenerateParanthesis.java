@@ -14,13 +14,9 @@ public class GenerateParanthesis {
 
     public void dfs(String str, int l, int r) {
         if (l == 0 && r == 0) {
-            System.out.println(String.format("l: %d, r: %d, str %s", l, r, str));
             list.add(str);
             return;
         }
-
-        System.out.println(String.format("l: %d, r: %d, str %s", l, r, str));
-
 
         if (l > 0) {
             String s = str + "(";

@@ -31,6 +31,9 @@ public class TernaryExpressionParser {
 
 
 
+
+    String test = "T?3:5";
+
     public String parseTernary2(String expression){
         Stack<Character> stack = new Stack<Character>();
         for(int i = expression.length() - 1; i >= 0; i--){
