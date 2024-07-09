@@ -8,12 +8,17 @@ public class CopyListWithRandomPointer {
     class RandomListNode {
         int label;
         RandomListNode next, random;
-        RandomListNode(int x) { this.label = x; }
-    };
+
+        RandomListNode(int x) {
+            this.label = x;
+        }
+    }
+
+    ;
 
     public RandomListNode copyRandomList(RandomListNode head) {
 
-        if(head == null) return head;
+        if (head == null) return head;
 
 
         Map<RandomListNode, RandomListNode> map = new HashMap<>();
@@ -21,10 +26,10 @@ public class CopyListWithRandomPointer {
         RandomListNode pre = dummy;
         RandomListNode newNode;
 
-        while( head != null ){
-            if(map.containsKey(head)){
+        while (head != null) {
+            if (map.containsKey(head)) {
                 newNode = map.get(head);
-            }else{
+            } else {
                 newNode = new RandomListNode(head.label);
                 map.put(head, newNode);
             }
@@ -32,10 +37,10 @@ public class CopyListWithRandomPointer {
             pre.next = newNode;
 
             // handle new node
-            if(head.random != null){
-                if(map.containsKey(head.random)){
+            if (head.random != null) {
+                if (map.containsKey(head.random)) {
                     newNode.random = map.get(head.random);
-                }else{
+                } else {
                     newNode.random = new RandomListNode(head.random.label);
                     map.put(head.random, newNode.random);
                 }
@@ -48,4 +53,25 @@ public class CopyListWithRandomPointer {
         return dummy.next;
     }
 
+    public RandomListNode copyRandomList2(RandomListNode head) {
+        if(head == null) return null;
+        Map<RandomListNode, RandomListNode> map = new HashMap<>();
+
+        RandomListNode curr = head;
+
+        while(curr!= null){
+            map.put(curr, new RandomListNode(curr.label));
+            curr = curr.next;
+        }
+
+        curr = head;
+
+        while(curr!=null){
+            map.get(curr).next = map.get(curr.next);
+            map.get(curr).random = map.get(curr.random);
+            curr = curr.next;
+        }
+        return map.get(head);
+
+    }
 }
