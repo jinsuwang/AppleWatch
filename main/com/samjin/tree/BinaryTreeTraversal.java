@@ -114,4 +114,53 @@ public class BinaryTreeTraversal {
         return res;
     }
 
+
+    int min = 0;
+    int max = 0;
+
+    private void helper(TreeNode root, int index){
+        if(root == null) return;
+        min = Math.min(min, index);
+        max = Math.max(max, index);
+        helper(root.left, index -1);
+        helper(root.right, index +1);
+    }
+
+    public List<List<Integer>> verticalOrder(TreeNode root) {
+        List<List<Integer>> res =  new ArrayList<>();
+        if (root == null) return res;
+        helper(root, 0);
+
+        for(int i = min; i <= max; i++){
+            res.add(new ArrayList<>());
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<Integer> index = new LinkedList<>();
+
+        queue.offer(root);
+        index.offer(-min);
+
+        while(!queue.isEmpty()){
+            TreeNode curr = queue.poll();
+            int currIndex = index.poll();
+
+            res.get(currIndex).add(curr.val);
+
+            if (curr.left != null) {
+                queue.offer(curr.left);
+                index.offer(currIndex - 1);
+            }
+
+
+            if (curr.right != null) {
+                queue.offer(curr.right);
+                index.offer(currIndex + 1);
+            }
+        }
+
+        return res;
+
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.samjin.twopointer;
+package com.samjin.array;
 
 /**
  * Created by sjjin on 12/14/17.
