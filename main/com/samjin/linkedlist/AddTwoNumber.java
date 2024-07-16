@@ -9,47 +9,26 @@ public class AddTwoNumber {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        int tmp = 0;
-        int curr = 0;
         ListNode dummy = new ListNode(-1);
-        ListNode currNode = dummy;
+        ListNode curr = dummy;
 
-        while(l1 != null && l2 != null){
-            int val = (l1.val + l2.val + tmp);
+        int carry = 0;
+        while(l1 != null || l2 != null){
+            int x = l1 == null ? 0 : l1.val;
+            int y = l2 == null ? 0 : l2.val;
 
+            int sum = x + y + carry;
+            curr.next = new ListNode(sum % 10);
+            carry = sum / 10;
+            curr = curr.next;
 
-            curr = val % 10;
-            tmp = val / 10;
-
-            currNode.next = new ListNode(curr);
-            currNode = currNode.next;
-            l1 = l1.next;
-            l2 = l2.next;
-
+            if(l1 != null) l1 = l1.next;
+            if(l2 != null) l2 = l2.next;
         }
 
-        while(l1 != null){
-            int val = l1.val + tmp;
-            curr = val % 10;
-            tmp = val / 10;
-
-            currNode.next = new ListNode(curr);
-            currNode = currNode.next;
-            l1 = l1.next;
+        if(carry != 0){
+            curr.next = new ListNode(carry);
         }
-
-        while(l2 != null){
-            int val = l2.val + tmp;
-            curr = val % 10;
-            tmp = val / 10;
-
-            currNode.next = new ListNode(curr);
-            currNode = currNode.next;
-            l2 = l2.next;
-        }
-
-        if( tmp != 0 ) currNode.next = new ListNode(tmp);
-
         return dummy.next;
     }
 }

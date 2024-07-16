@@ -12,8 +12,8 @@ public class MergeSortedArrayTest {
 
     @Test
     public void merge() {
-        int[] num1 = new int[]{1,3,5,-1,-1,-1,-1};
-        int[] num2 = new int[]{2,4,6};
+        int[] num1 = new int[]{4,5,6,-1,-1,-1};
+        int[] num2 = new int[]{1,2,3};
 
         ins.merge(num1, 3, num2, 3);
 

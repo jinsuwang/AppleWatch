@@ -3,14 +3,14 @@ package com.samjin.linkedlist;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LRUCache<K,V> {
+public class LRUCache {
 
-    private class Node<K,V> {
+    private class Node {
 
         public Node next;
         public Node prev;
-        private Integer key ;
-        private Integer val;
+        public Integer key ;
+        public Integer val;
 
         Node(Integer key, Integer val){
             this.key = key;
@@ -22,7 +22,7 @@ public class LRUCache<K,V> {
     private int capacity;
     Node head;
     Node tail;
-    Map<Integer, Node> map = new HashMap<Integer,Node>();
+    Map<Integer, Node> map = new HashMap<>();
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
