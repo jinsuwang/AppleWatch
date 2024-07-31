@@ -15,7 +15,7 @@ public class GenerateParanthesis {
     public void dfs(String str, int l, int r) {
         if (l == 0 && r == 0) {
             list.add(str);
-            return; 
+            return;
         }
 
         if (l > 0) {

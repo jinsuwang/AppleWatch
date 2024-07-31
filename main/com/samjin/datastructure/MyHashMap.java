@@ -1,7 +1,6 @@
-package com.samjin.datastructure;
+package com.samjin.datastructure.lru;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MyHashMap<K,V> {
 

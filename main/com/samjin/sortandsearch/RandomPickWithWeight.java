@@ -17,22 +17,18 @@ public class RandomPickWithWeight {
         int left = 0;
         int right = sum.length - 1;
 
-        while(left + 1 < right) {
+        while(left <= right) {
             int mid = (left + right) / 2;
 
             if(sum[mid] == target) return mid;
 
             if(sum[mid] > target) {
-                right = mid;
+                right = mid - 1;
             } else {
-                left = mid;
+                left = mid + 1;
             }
         }
 
-        if(sum[left] >= target) {
-            return left;
-        } else {
-            return right;
-        }
+        return left;
     }
 }

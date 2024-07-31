@@ -14,11 +14,8 @@ public class MergeIntervals {
         List<Interval> res = new ArrayList<>();
         if(intervals == null || intervals.size() == 0) return res;
 
-        Collections.sort(intervals, new Comparator<Interval>() {
-            @Override
-            public int compare(Interval i1, Interval i2) {
+        Collections.sort(intervals, (Interval i1, Interval i2)->{
                 return i1.start - i2.start;
-            }
         });
 
         Interval curr = intervals.get(0);

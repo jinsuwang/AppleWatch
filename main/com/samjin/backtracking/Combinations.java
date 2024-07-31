@@ -22,9 +22,9 @@ public class Combinations {
             return;
         }
 
-        for (int i = startIndex;  i <= n; i++) {
+        for (int i = startIndex;  i<= n; i++) {
             path.add(i);
-            dfs(n, k, startIndex+1);
+            dfs(n, k, i+1);
             path.removeLast();
         }
     }

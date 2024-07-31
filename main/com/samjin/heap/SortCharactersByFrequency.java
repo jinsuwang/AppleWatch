@@ -27,14 +27,14 @@ public class SortCharactersByFrequency {
 
     public String frequencySort(String s) {
 
-        PriorityQueue<Pair> pq = new PriorityQueue<>(
-            new Comparator<Pair>() {
-                @Override
-                public int compare(Pair p1, Pair p2) {
-                    // change to max heap
-                    return -1 * p1.frequency.compareTo(p2.frequency);
-                }
-            }
+        PriorityQueue<Pair> pq = new PriorityQueue<>( (a,b) -> (b.frequency - a.frequency)
+//            new Comparator<Pair>() {
+//                @Override
+//                public int compare(Pair p1, Pair p2) {
+//                    // change to max heap
+//                    return -1 * p1.frequency.compareTo(p2.frequency);
+//                }
+//            }
         );
 
         // Create counter map
