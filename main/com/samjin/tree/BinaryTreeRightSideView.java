@@ -9,7 +9,7 @@ public class BinaryTreeRightSideView {
     Integer maxlevel = 0;
 
     public List<Integer> rightSideView(TreeNode root) {
-        if(root == null ) return res;
+        if(root == null) return res;
         dfs(root, 1);
         return res;
     }

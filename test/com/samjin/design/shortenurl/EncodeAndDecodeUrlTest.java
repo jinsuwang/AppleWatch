@@ -1,4 +1,4 @@
-package com.samjin.ooddesign.shortenurl;
+package com.samjin.design.shortenurl;
 
 import org.junit.Test;
 

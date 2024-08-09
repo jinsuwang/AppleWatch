@@ -6,34 +6,20 @@ import java.util.List;
 public class BinaryTreePaths {
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> res = new ArrayList<>();
+        if(root == null) return res;
 
-        if (root == null) return res;
-
-        List<Integer> paths = new ArrayList<>();
-        traversal(root, paths, res);
+        helper(res, root, "");
         return res;
     }
 
-    private void traversal(TreeNode root, List<Integer> paths, List<String> res) {
-        paths.add(root.val);
-
-        if (root.left == null && root.right == null) {
-
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < paths.size() - 1; i++) {
-                sb.append(paths.get(i)).append("->");
-            }
-            sb.append(paths.get(paths.size() - 1));// 记录最后一个节点
-            res.add(sb.toString());// 收集一个路径
+    private void helper(List<String> res, TreeNode root, String curr) {
+        if(root == null) return;
+        if(root.left == null && root.right == null) {
+            res.add(curr + root.val);
             return;
         }
 
-        if (root.left != null){
-            traversal(root.left, paths, res);
-        }
-        if (root.right != null){
-            traversal(root.right, paths, res);
-        }
-
+        helper(res, root.left, curr + root.val + "->");
+        helper(res, root.right, curr + root.val + "->");
     }
 }

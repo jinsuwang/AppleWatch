@@ -2,47 +2,36 @@ package com.samjin.design.shortenurl;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class EncodeAndDecodeUrl {
+    String alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    HashMap<String, String> map = new HashMap<>();
+    Random rand = new Random();
+    String key = getRand();
 
-    Map<Integer,String> map1 = new HashMap<>();
-    Map<String,Integer> map2 = new HashMap<>();
-
-    String s = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-    // Encodes a URL to a shortened URL.
-    public String encode(String longUrl) {
-        if(!map2.containsKey(longUrl)){
-            map1.put(map1.size()+1, longUrl);
-            map2.put(longUrl, map2.size()+1);
-        }
-        int n = map2.get(longUrl);
-
+    public String getRand() {
         StringBuilder sb = new StringBuilder();
-        while(n > 0){
-            int r = n % 62;
-            n /= 62;
-            sb.insert(0, s.charAt(r));
+        // 长度固定为6
+        for (int i = 0; i < 6; i++) {
+            // 随机字符对应
+            sb.append(alphabet.charAt(rand.nextInt(62)));
         }
 
         return sb.toString();
     }
 
-    // Decodes a shortened URL to its original URL.
-    public String decode(String shortUrl) {
-        int n = 0;
-        for(int i = 0; i < shortUrl.length(); i++){
-            n = n * 62 + s.indexOf(shortUrl.charAt(i));
+    public String encode(String longUrl) {
+        while (map.containsKey(key)) {
+            key = getRand();
         }
-        return map1.get(n);
+
+        map.put(key, longUrl);
+
+        return "http://tinyurl.com/" + key;
     }
 
-
-    // Random number
-    public String longToShort(String url){
-        // randomly generate one String.
-        // check if exists in DB
-        // if yes, save it and if no, re-generate string.
-        return "";
+    public String decode(String shortUrl) {
+        return map.get(shortUrl.replace("http://tinyurl.com/", ""));
     }
 }

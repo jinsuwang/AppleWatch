@@ -59,7 +59,6 @@ public class BoundaryOfBinaryTree {
             getRight(root.left);
         }
         res.add(root.val);
-
     }
 
 }

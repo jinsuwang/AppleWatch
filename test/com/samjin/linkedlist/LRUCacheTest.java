@@ -1,9 +1,7 @@
 package com.samjin.linkedlist;
 
-import org.junit.Before;
+import com.samjin.datastructure.lru.LRUCache;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class LRUCacheTest {
 

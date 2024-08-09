@@ -17,15 +17,6 @@ public class MinimumCostToHireKWorker {
         }
 
     }
-    class Myc implements Comparator<Worker> {
-        public Myc(){
-
-        }
-        @Override
-        public int compare(Worker x, Worker y){
-            return Double.compare(x.getRatio(),y.getRatio());
-        }
-    }
     public double mincostToHireWorkers(int[] quality, int[] wage, int K) {
         Worker[] worker = new Worker[quality.length];
         for(int i = 0; i < quality.length; i++){
@@ -33,8 +24,7 @@ public class MinimumCostToHireKWorker {
         }
         int sumQuality = 0;
         double ans = Double.MAX_VALUE;
-        Myc myc = new Myc();
-        Arrays.sort(worker,myc);
+        Arrays.sort(worker, (Worker x, Worker y) -> ( Double.compare(x.getRatio(),y.getRatio())));
         PriorityQueue<Integer> pq = new PriorityQueue<>((x, y)->y-x);
         for(Worker w : worker){
             //System.out.println(w.quality+" "+ w.getRatio());

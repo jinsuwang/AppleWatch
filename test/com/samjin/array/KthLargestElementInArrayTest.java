@@ -1,10 +1,9 @@
 package com.samjin.array;
 
+import com.samjin.heap.KthLargestElementInArray;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by sjjin on 12/14/17.

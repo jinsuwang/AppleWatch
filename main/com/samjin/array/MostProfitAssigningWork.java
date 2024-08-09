@@ -1,6 +1,6 @@
 package com.samjin.array;
 
-import com.samjin.stack.HitCounter;
+import com.samjin.stackandqueue.HitCounter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
