@@ -1,5 +1,7 @@
 package com.samjin.sortandsearch;
 
+import java.util.Random;
+
 public class RandomPickWithWeight {
     int[] sum;
 
@@ -12,7 +14,8 @@ public class RandomPickWithWeight {
     }
 
     public int pickIndex() {
-        double target = Math.random() * sum[sum.length - 1];
+        Random rand = new Random();
+        int target =  rand.nextInt(sum[sum.length-1]) + 1; // Random number between 1 and totalSum
 
         int left = 0;
         int right = sum.length - 1;

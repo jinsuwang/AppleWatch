@@ -1,5 +1,8 @@
 package com.samjin.tree;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LowestCommonAncestorOfaBinarySearchTree {
     public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
 
@@ -32,4 +35,34 @@ public class LowestCommonAncestorOfaBinarySearchTree {
 
 
 
+    class Node {
+        public int val;
+        public Node left;
+        public Node right;
+        public Node parent;
+    };
+
+
+    class Solution {
+        public Node lowestCommonAncestor3(Node p, Node q) {
+            Set<Node> ancestors = new HashSet<>();
+
+            // 遍历 p 的祖先节点并将它们加入到 HashSet 中
+            while (p != null) {
+                ancestors.add(p);
+                p = p.parent;
+            }
+
+            // 遍历 q 的祖先节点，如果某个节点已经在 HashSet 中，说明它是 LCA
+            while (q != null) {
+                if (ancestors.contains(q)) {
+                    return q;
+                }
+                q = q.parent;
+            }
+
+            return null; // 如果没有找到 LCA，返回 null
+        }
+
+    }
 }

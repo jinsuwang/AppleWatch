@@ -17,13 +17,15 @@ public class MeetingRooms2 {
 
         for (int i = 1; i < intervals.length; i++) {
 
-            if (intervals[i][0] >= pq.peek()) {
+            while (!pq.isEmpty() && intervals[i][0] >= pq.peek()) {
                 pq.poll();
             }
             pq.add(intervals[i][1]);
-        }
 
-        return pq.size();
+            res = Math.max(res, pq.size());
+
+        }
+        return res;
 
     }
 }

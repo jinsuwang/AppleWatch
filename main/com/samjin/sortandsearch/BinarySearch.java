@@ -25,7 +25,7 @@ public class BinarySearch {
         return -1;
     }
     // 左闭右开
-    public int  search2 (int[] nums, int target){
+    public static int search2 (int[] nums, int target){
         if (target < nums[0] || target > nums[nums.length-1]){
             return -1;
         }
@@ -34,7 +34,8 @@ public class BinarySearch {
 
         while (left < right){
 
-            int mid = left + (left + right) / 2;
+            int mid = left + (right - left) / 2;
+            System.out.println(mid);
 
             if (nums[mid] == target) return mid;
 
@@ -44,9 +45,12 @@ public class BinarySearch {
                 left = mid + 1;
             }
         }
+        return nums[left] == target ? left : -1;
+    }
 
-        return -1;
-
+    public static void main(String[] args) {
+        int[] test = new int[]{5};
+        System.out.println(search2(test, 5));
     }
 }
 
