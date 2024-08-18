@@ -1,4 +1,4 @@
-package com.samjin.backtracking;
+package com.samjin.dfs;
 
 public class NumberOfIsland {
 
