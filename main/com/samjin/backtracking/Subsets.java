@@ -13,13 +13,11 @@ public class Subsets {
     }
 
     private void dfs(int[] nums, int i, List<Integer> path, List<List<Integer>> res) {
-        System.out.println("Adding " + path.toString() + " to result.");
         res.add(new ArrayList<>(path));
 
         for(int k = i; k < nums.length; k++ ){
             path.add(nums[k]);
             dfs(nums, k+1, path, res);
-            System.out.println("Removing...");
             path.remove(path.size() - 1);
         }
     }

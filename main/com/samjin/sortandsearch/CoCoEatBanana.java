@@ -1,4 +1,4 @@
-package com.samjin.array;
+package com.samjin.sortandsearch;
 
 public class CoCoEatBanana {
     public int minEatingSpeed(int[] piles, int H) {

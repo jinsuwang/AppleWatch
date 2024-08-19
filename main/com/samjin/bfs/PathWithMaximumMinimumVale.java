@@ -1,4 +1,4 @@
-package com.samjin.heap;
+package com.samjin.bfs;
 
 import java.util.PriorityQueue;
 

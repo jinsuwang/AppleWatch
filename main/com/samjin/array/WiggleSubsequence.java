@@ -1,4 +1,4 @@
-package com.samjin.greedy;
+package com.samjin.array;
 
 public class WiggleSubsequence {
 

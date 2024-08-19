@@ -1,4 +1,4 @@
-package com.samjin.array;
+package com.samjin.greedy;
 
 import java.util.Arrays;
 

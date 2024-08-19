@@ -8,7 +8,7 @@ public class CombinationSum3 {
     List<List<Integer>> res = new ArrayList<>();
     LinkedList<Integer> path = new LinkedList<Integer>();
     public List<List<Integer>> combinationSum3(int k, int n) {
-        dfs(k, n, 0, 1);
+        dfs(n, k, 0, 1);
         return res;
     }
 
@@ -24,10 +24,8 @@ public class CombinationSum3 {
 
         for (int i = startIndex; i <= 9; i++){
             path.add(i);
-            sum += i;
-            dfs(target, k, sum, i+1);
+            dfs(target, k, sum + i, i+1);
             path.removeLast();
-            sum -= i;
         }
     }
 }

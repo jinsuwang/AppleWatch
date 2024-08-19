@@ -1,4 +1,4 @@
-package com.samjin.sortandsearch;
+package com.samjin.amazon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
