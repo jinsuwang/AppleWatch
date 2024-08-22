@@ -15,15 +15,11 @@ public class ProductofArrayExceptSelf {
             res[i] = p;
         }
 
-        System.out.println(Arrays.toString(res));
-
         p = 1;
         for(int i = nums.length - 2; i >= 0; i --){
             p = p * nums[i+1];
             res[i] *= p;
         }
-
-        System.out.println(Arrays.toString(res));
 
         return res;
     }

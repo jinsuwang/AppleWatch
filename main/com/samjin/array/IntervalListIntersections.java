@@ -5,18 +5,18 @@ import java.util.List;
 
 public class IntervalListIntersections {
 
-    public int[][] intervalIntersection(int[][] A, int[][] B) {
-        int len1 = A.length;
-        int len2 = B.length;
+    public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
+        int len1 = firstList.length;
+        int len2 = secondList.length;
         List<int[]> list = new ArrayList<>();
 
         int i = 0 ;
         int j = 0 ;
         while(i<len1&&j<len2){
-            int s1 = A[i][0];
-            int e1 = A[i][1];
-            int s2 = B[j][0];
-            int e2 = B[j][1];
+            int s1 = firstList[i][0];
+            int e1 = firstList[i][1];
+            int s2 = secondList[j][0];
+            int e2 = secondList[j][1];
 
             if(s2>e1)i++;
             else if(e2<s1)j++;
