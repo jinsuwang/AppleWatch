@@ -34,4 +34,16 @@ class TextEditor {
         if(pos<10) return res.substring(0,pos);
         return res.substring(pos-10,pos);
     }
+
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("a");
+        sb.append("b");
+        sb.append("c");
+
+        sb.delete(0, 2);
+
+        System.out.println(sb.toString());
+
+    }
 }
