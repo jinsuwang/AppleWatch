@@ -14,24 +14,27 @@ public class RandomPickWithWeight {
     }
 
     public int pickIndex() {
-        Random rand = new Random();
-        int target =  rand.nextInt(sum[sum.length-1]) + 1; // Random number between 1 and totalSum
+        double target = Math.random() * sum[sum.length - 1];
 
         int left = 0;
         int right = sum.length - 1;
 
-        while(left <= right) {
+        while(left + 1 < right) {
             int mid = (left + right) / 2;
 
             if(sum[mid] == target) return mid;
 
             if(sum[mid] > target) {
-                right = mid - 1;
+                right = mid;
             } else {
-                left = mid + 1;
+                left = mid;
             }
         }
 
-        return left;
+        if(sum[left] >= target) {
+            return left;
+        } else {
+            return right;
+        }
     }
 }
