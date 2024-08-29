@@ -1,17 +1,39 @@
 package com.samjin.design.ood.restaurant;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by sjjin on 3/25/18.
- */
 public class Order {
 
-    private List<Meal> meals;
-    private Table table;
-    private Party party;
+    private List<OrderItem> items;
+    private boolean isPaid;
 
-    public float getPrice(){
-        return 0;
-    };
+    public Order() {
+        items = new ArrayList<>();
+        isPaid = false;
+    }
+
+    public void addItem(OrderItem item) {
+        items.add(item);
+    }
+
+    public void removeItem(OrderItem item) {
+        items.remove(item);
+    }
+
+    public double calculateTotal() {
+        double total = 0;
+        for (OrderItem item : items) {
+            total += item.getTotalPrice();
+        }
+        return total;
+    }
+
+    public void pay() {
+        isPaid = true;
+    }
+
+    public boolean isPaid() {
+        return isPaid;
+    }
 }

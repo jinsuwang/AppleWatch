@@ -50,13 +50,13 @@ public class AllNodesDistanceKinBinaryTree {
 
     private void buildGraph(TreeNode parent, TreeNode child) {
 
-        if (parent!=null){
-            if(!map.containsKey(parent.val)){
+        if (parent != null) {
+            if (!map.containsKey(parent.val)) {
                 map.put(parent.val, new ArrayList<>());
             }
             map.get(parent.val).add(child.val);
 
-            if (!map.containsKey(child.val)){
+            if (!map.containsKey(child.val)) {
                 map.put(child.val, new ArrayList<>());
             }
 
@@ -65,6 +65,5 @@ public class AllNodesDistanceKinBinaryTree {
 
         if (child.left != null) buildGraph(child, child.left);
         if (child.right != null) buildGraph(child, child.right);
-
     }
 }

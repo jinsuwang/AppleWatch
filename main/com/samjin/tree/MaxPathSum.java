@@ -5,18 +5,18 @@ public class MaxPathSum {
     private int maxSum = Integer.MIN_VALUE;
 
     public int maxPathSum(TreeNode root) {
-        dfs(root);
+        traverse(root);
         return maxSum;
     }
 
-    private int dfs(TreeNode node) {
+    private int traverse(TreeNode node) {
         if (node == null) {
             return 0;
         }
 
         // Recursively calculate the maximum path sum for the left and right children
-        int leftMax = Math.max(dfs(node.left), 0);
-        int rightMax = Math.max(dfs(node.right), 0);
+        int leftMax = Math.max(traverse(node.left), 0);
+        int rightMax = Math.max(traverse(node.right), 0);
 
         // Calculate the maximum path sum passing through the current node
         int currentPathSum = node.val + leftMax + rightMax;

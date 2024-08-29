@@ -1,26 +1,44 @@
 package com.samjin.design.ood.restaurant;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * Created by sjjin on 3/25/18.
- */
 public class Restaurant {
 
-    private List<Table> tables;
+    private Menu menu;
+    private Map<Integer, Table> tables;
 
-    // use case 1: find table
-    public Table findTable(Party party){
-        return null;
+    public Restaurant() {
+        menu = new Menu();
+        tables = new HashMap<>();
     }
 
-    // use case 2: Take Order
-    public void takeOrder(Order o){
-
+    public Menu getMenu() {
+        return menu;
     }
 
-    // use case 3: Checkout
-    public void checkout(Order o){
+    public void addTable(int tableNumber) {
+        tables.put(tableNumber, new Table(tableNumber));
+    }
 
+    public Table getTable(int tableNumber) {
+        return tables.get(tableNumber);
+    }
+
+    public void placeOrder(int tableNumber, Order order) {
+        Table table = tables.get(tableNumber);
+        if (table != null) {
+            table.addOrder(order);
+        } else {
+            System.out.println("Table not found!");
+        }
+    }
+
+    public double calculateTotalRevenue() {
+        double total = 0;
+        for (Table table : tables.values()) {
+            total += table.calculateTotalForTable();
+        }
+        return total;
     }
 }

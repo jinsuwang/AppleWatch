@@ -1,22 +1,35 @@
 package com.samjin.design.ood.restaurant;
 
-/**
- * Created by sjjin on 3/25/18.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class Table {
 
-    private boolean available;
-    private int capacity;
+    private int tableNumber;
+    private List<Order> orders;
 
-    public boolean isAvailable() {
-        return available;
+    public Table(int tableNumber) {
+        this.tableNumber = tableNumber;
+        orders = new ArrayList<>();
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public int getTableNumber() {
+        return tableNumber;
     }
 
-    public int getCapacity() {
-        return capacity;
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+
+    public double calculateTotalForTable() {
+        double total = 0;
+        for (Order order : orders) {
+            total += order.calculateTotal();
+        }
+        return total;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 }
