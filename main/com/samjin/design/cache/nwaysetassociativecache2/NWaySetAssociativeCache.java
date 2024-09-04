@@ -1,4 +1,4 @@
-package com.samjin.design.nwaysetassociativecache2;
+package com.samjin.design.cache.nwaysetassociativecache2;
 
 import java.util.List;
 import java.util.ArrayList;

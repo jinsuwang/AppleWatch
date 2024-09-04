@@ -23,6 +23,7 @@
             tempList.remove(tempList.size() - 1); // 撤销选择
         }
     }
+
 <h1>Search and Sorting</h1>
     
     public int search(int[] nums, int target) {
@@ -143,6 +144,7 @@
 
 
 <h1>Stack and Queue</h1>
+1. Monotonic Stack
 
 <h1>Tree</h1>
 
@@ -153,6 +155,17 @@
 
 <h1>Heap</h1>
 - pick 2 items to select top 2.
+- Customized Sorting
+ - Arrays.sort(intervals, (int[] a, int[] b) -> (a[0] - b[0]));
+ - use custom comparator
+
+    Arrays.sort(test, new Comparator<String>() {
+        @Override
+        public int compare(String a, String b) {
+            // return negative if obj1 < obj2, zero if obj1 == obj2, positive if obj1 > obj2
+            return a.compareTo(b);
+        }
+    });
 
 <h1>LinkedList</h1>
 1. Reverse LinkedList Node. 
@@ -176,8 +189,10 @@
 3. Merge K sorted list - divide and conquer
 
 <h1>HashHap</h1>
+1. use chat[26] as map for the string iteration.
 
 <h1>DP</h1>
+state transfer function
 
 <h1>Others</h1>
 

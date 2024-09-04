@@ -9,7 +9,7 @@ Template
 1. Functional Requirement
 2. Non-Functional Requirement
 - TPS
-- storage requirement
+- SLA
 - Read / Write
 3. Out of Scope
 4. Input/Output (API)

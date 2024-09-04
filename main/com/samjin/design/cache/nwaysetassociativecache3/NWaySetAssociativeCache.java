@@ -1,4 +1,4 @@
-package com.samjin.design.nwaysetassociativecache3;
+package com.samjin.design.cache.nwaysetassociativecache3;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

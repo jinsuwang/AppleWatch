@@ -1,4 +1,4 @@
-package com.samjin.design.nwaysetassociativecache1;
+package com.samjin.design.cache.nwaysetassociativecache1;
 
 public interface Policy<V> {
 

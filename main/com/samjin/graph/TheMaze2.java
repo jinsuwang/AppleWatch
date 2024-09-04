@@ -1,4 +1,4 @@
-package com.samjin.dfs;
+package com.samjin.graph;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

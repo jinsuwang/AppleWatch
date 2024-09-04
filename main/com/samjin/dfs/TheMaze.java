@@ -7,10 +7,10 @@ public class TheMaze {
     static int[][] dirs={{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
 
     public static boolean hasPath(int[][] maze, int[] start, int[] destination) {
-        return helper(maze, start, destination, new boolean[maze.length][maze[0].length]);
+        return dfs(maze, start, destination, new boolean[maze.length][maze[0].length]);
     }
 
-    private static boolean helper(int[][] maze, int[] curr, int[] dest, boolean[][] visited) {
+    private static boolean dfs(int[][] maze, int[] curr, int[] dest, boolean[][] visited) {
 
         if(curr[0] == dest[0] && curr[1] == dest[1]) {
             return true;
@@ -33,7 +33,7 @@ public class TheMaze {
                 y += dir[1];
             }
 
-            if(helper(maze, new int[]{x, y}, dest, visited)){
+            if(dfs(maze, new int[]{x, y}, dest, visited)){
                 return true;
             }
         }
