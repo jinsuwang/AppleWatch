@@ -1,4 +1,4 @@
-package com.samjin.design.shortestworddistance2;
+package com.samjin.hashmap;
 
 import java.util.ArrayList;
 import java.util.HashMap;

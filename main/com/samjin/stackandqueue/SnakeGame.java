@@ -1,4 +1,4 @@
-package com.samjin.design.snakegame;
+package com.samjin.stackandqueue;
 
 import java.util.Deque;
 import java.util.HashSet;

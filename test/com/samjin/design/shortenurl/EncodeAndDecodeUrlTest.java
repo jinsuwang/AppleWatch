@@ -1,5 +1,6 @@
 package com.samjin.design.shortenurl;
 
+import com.samjin.hashmap.EncodeAndDecodeUrl;
 import org.junit.Test;
 
 public class EncodeAndDecodeUrlTest {

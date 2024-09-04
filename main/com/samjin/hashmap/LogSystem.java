@@ -1,4 +1,4 @@
-package com.samjin.design.logstoragesystem;
+package com.samjin.hashmap;
 
 import java.util.*;
 

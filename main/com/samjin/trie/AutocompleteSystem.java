@@ -1,4 +1,4 @@
-package com.samjin.design.searchautocompletion;
+package com.samjin.trie;
 
 import java.util.ArrayList;
 import java.util.Collections;

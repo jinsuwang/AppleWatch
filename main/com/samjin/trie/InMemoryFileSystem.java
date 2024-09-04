@@ -1,4 +1,4 @@
-package com.samjin.design.filesystem;
+package com.samjin.trie;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.samjin.design.authnticationmanager;
+package com.samjin.hashmap;
 
 import java.util.HashMap;
 import java.util.Map;

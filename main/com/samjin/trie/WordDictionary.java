@@ -1,4 +1,4 @@
-package com.samjin.design.worddictionary;
+package com.samjin.trie;
 
 public class WordDictionary {
 

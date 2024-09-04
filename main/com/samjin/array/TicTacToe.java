@@ -1,4 +1,4 @@
-package com.samjin.design.tictactoe;
+package com.samjin.array;
 
 class TicTacToe {
 

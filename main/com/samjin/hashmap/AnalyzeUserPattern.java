@@ -1,8 +1,8 @@
-package com.samjin.design.analyzeuserpattern;
+package com.samjin.hashmap;
 
 import java.util.*;
 
-public class Solution {
+public class AnalyzeUserPattern {
 
     public List<String> mostVisitedPattern(String[] username, int[] timestamp, String[] website) {
         Map<String, TreeMap<Integer, String>> userToSiteMap = new HashMap<>();

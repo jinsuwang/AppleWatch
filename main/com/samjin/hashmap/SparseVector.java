@@ -1,4 +1,4 @@
-package com.samjin.array;
+package com.samjin.hashmap;
 
 import java.util.HashMap;
 import java.util.Map;

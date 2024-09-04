@@ -1,4 +1,4 @@
-package com.samjin.design.texteditor;
+package com.samjin.string;
 
 class TextEditor {
     StringBuilder res;

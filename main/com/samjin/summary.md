@@ -2,7 +2,11 @@
 <h1>Array</h1>
 
 1. PrefixSum
-2. Two pointers
+2. Two pointers 
+- one array (left = 0; right = length -1)
+- two arrays (left_1 = 0, left_2 = 0)
+3. one pass with max/min value
+4. two pass (forward and backward)
 
 <h1>Backtracking</h1>
 
@@ -142,10 +146,34 @@
 
 <h1>Tree</h1>
 
-<h1>Heap</h1>
+1. In/Pre/Post - ordertraversal
+2. Level order traversal - BFS with queue
+3. Vertical order traversal - 2 queues, index queue + node queue
+4. Boundary traversal
 
+<h1>Heap</h1>
+- pick 2 items to select top 2.
 
 <h1>LinkedList</h1>
+1. Reverse LinkedList Node. 
+
+    public ListNode reverseList(ListNode head) {
+        ListNode curr = head;
+        ListNode prev = null;
+        ListNode tmp = null;
+
+        while( curr != null ){
+            tmp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = tmp;
+        }
+
+        return prev;
+    }
+1.1 swap node in pairs - two temp.
+2. fast/slow node to find a mid point.
+3. Merge K sorted list - divide and conquer
 
 <h1>HashHap</h1>
 
