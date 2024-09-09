@@ -19,35 +19,41 @@ public class ConvertBinarySearchTreeToSortedDoubleLinkedList {
         }
     };
 
+    private Node first = null;
+    private Node last = null;
 
-    Node head = null;
-    Node prev = null;
     public Node treeToDoublyList(Node root) {
-        if(root == null) return root;
+        if (root == null) return null;
 
-        helper(root);
+        // 中序遍历
+        inOrder(root);
 
-        head.right.left = prev;
-        prev.right = head.right;
+        // 连接头和尾，使其成为一个环
+        last.right = first;
+        first.left = last;
 
-        return head.right;
-
+        return first;
     }
 
-    private void helper(Node root) {
-        if (root == null) return;
+    private void inOrder(Node node) {
+        if (node == null) return;
 
-        helper(root.left);
+        // 遍历左子树
+        inOrder(node.left);
 
-        if (head == null){
-            head = new Node();
-            head.right = root;
-        }else{
-            prev.right = root;
-            root.left = prev;
+        // 当前节点处理
+        if (last != null) {
+            // 连接前一个节点和当前节点
+            last.right = node;
+            node.left = last;
+        } else {
+            // 这是第一个节点
+            first = node;
         }
+        last = node;
 
-        prev = root;
+        // 遍历右子树
+        inOrder(node.right);
     }
 
 
