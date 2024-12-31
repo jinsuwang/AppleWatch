@@ -1,8 +1,6 @@
 package com.samjin.segmenttree;
 
-import javax.swing.text.Segment;
-
-public class RangeSumQuery {
+public class RangeSumQueryMutable {
 
 
     private class SegmentTreeNode{
@@ -33,7 +31,7 @@ public class RangeSumQuery {
         return ret;
     }
 
-    public RangeSumQuery(int[] nums) {
+    public RangeSumQueryMutable(int[] nums) {
         root = build(nums,0, nums.length - 1);
     }
 
