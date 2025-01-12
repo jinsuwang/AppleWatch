@@ -1,7 +1,25 @@
 package com.samjin.sortandsearch;
 
-public class KthSmallestElementInASortedMatrix {
+import java.util.PriorityQueue;
 
+public class KthSmallestElementInASortedMatrix {
+    public int kthSmallest2(int[][] matrix, int k) {
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
+
+        for(int i = 0; i < matrix.length; i++) {
+            pq.add(new int[]{matrix[i][0], i, 0});
+        }
+
+        while (!pq.isEmpty() && k-- > 0) {
+            int[] curr = pq.poll();
+            if(k == 0) return curr[0];
+
+            if(curr[2] == matrix[0].length - 1) continue;
+            pq.offer(new int[]{matrix[curr[1]][curr[2] + 1], curr[1], curr[2] + 1});
+        }
+
+        return -1;
+    }
     public int kthSmallest(int[][] matrix, int k) {
         int n = matrix.length;
         int lo = matrix[0][0];

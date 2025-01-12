@@ -1,35 +1,27 @@
 package com.samjin.dp;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class WordBreak {
 
     public boolean wordBreak(String s, List<String> wordDict) {
+        Set<String> wordDictSet = new HashSet(wordDict);
+        boolean[] dp = new boolean[s.length() + 1];
+        dp[0] = true;
 
-        boolean[] cache = new boolean[s.length()+1];
-        cache[0] = true;
-
-        int maxLen = findMaxLen(wordDict);
-
-        for(int i = 1; i <= s.length(); i++){
-            for(int j = 1; j <= maxLen && j <= i; j++){
-                if(!cache[i-j]) continue;// do nothing.
-                String tmp = s.substring(i-j, i);
-                if (wordDict.contains(tmp)){
-                   cache[i] = true;
-                   break;
+        for (int i = 1; i <= s.length(); i++) {
+            for (int j = 0; j < i; j++) {
+                // 有一次成功就可以退出这次循环了
+                if (dp[j] && wordDictSet.contains(s.substring(j, i))) {
+                    dp[i] = true;
+                    break;
                 }
             }
         }
-        return cache[s.length()];
-    }
 
-    private int findMaxLen(List<String> wordDict) {
-        int max = 0;
-        for(String word : wordDict){
-            max = Math.max(max, word.length());
-        }
-        return max;
+        return dp[s.length()];
     }
 }

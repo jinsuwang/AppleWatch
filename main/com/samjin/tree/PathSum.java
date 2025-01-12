@@ -1,9 +1,6 @@
 package com.samjin.tree;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class HasPathSum {
+public class PathSum {
 
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if(root == null) return false;

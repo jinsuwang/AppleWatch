@@ -8,36 +8,50 @@ public class CourseSchedule {
 
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
+        int[] indegree = new int[numCourses];
+        int res = numCourses;
 
-        ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
-
-        for (int i = 0; i < numCourses; ++i)
-            graph.add(new ArrayList<Integer>());
-
-        for (int i = 0; i < prerequisites.length; ++i) {
-            int course = prerequisites[i][0];
-            int prerequisite = prerequisites[i][1];
-            graph.get(course).add(prerequisite);
+        // 找入度为0，表示可以开始学习的课
+        for(int[] pair : prerequisites){
+            // [1,0] => 0->1
+            indegree[pair[0]]++;
         }
 
-        int[] visited = new int[numCourses];
+        Queue<Integer> queue = new LinkedList<>();
 
-        for (int i = 0; i < numCourses; ++i)
-            if (dfs(i, graph, visited)) return false;
+        // 入度为0的加入，然后bfs
+        for(int i = 0; i < indegree.length; i++){
+            if(indegree[i] == 0){
+                // 当前这个课已经可以学了
+                queue.offer(i);
+            }
+        }
+
+        while(!queue.isEmpty()){
+            int curr = queue.poll();
+
+            for(int[] pair : prerequisites){
+                // 如果这门课已经可以学习了，就不加入queue
+                if(indegree[pair[0]] == 0){
+                    continue;
+                }
+
+                if(pair[1] == curr){
+                    indegree[pair[0]]--;
+                }
+                // 这门课原来不能学习，现在可以学习了
+                if(indegree[pair[0]] == 0){
+                    queue.offer(pair[0]);
+                }
+            }
+        }
+
+        for(int i = 0; i < numCourses; i++){
+            if(indegree[i] != 0){
+                return false;
+            }
+        }
 
         return true;
-    }
-
-    private boolean dfs(int curr, ArrayList<ArrayList<Integer>> graph, int[] visited) {
-        if (visited[curr] == 1) return true;
-        if (visited[curr] == 2) return false;
-
-        visited[curr] = 1;
-
-        for (int next : graph.get(curr))
-            if (dfs(next, graph, visited)) return true;
-
-        visited[curr] = 2;
-        return false;
     }
 }

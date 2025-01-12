@@ -1,4 +1,4 @@
-package com.samjin.string;
+package com.samjin.stackandqueue;
 
 import java.util.Stack;
 

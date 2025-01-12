@@ -6,30 +6,25 @@ public class RemoveNthNodeFromEndofList {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
 
+        ListNode dummy = new ListNode(-1);
 
-        ListNode dummyNode = new ListNode(0);
-        dummyNode.next = head;
+        dummy.next = head;
 
-        ListNode fastIndex = dummyNode;
-        ListNode slowIndex = dummyNode;
+        ListNode curr = head;
+        ListNode prev = dummy;
 
-        for(int i = 0; i < n;  i++){
-            fastIndex = fastIndex.next;
+        for (int i = 0; i<n; i++){
+            head = head.next;
         }
 
-        while(fastIndex.next != null ){
-            fastIndex = fastIndex.next;
-            slowIndex = slowIndex.next;
-            if (fastIndex != null && slowIndex != null) {
-                System.out.println("fastIndex is " + fastIndex.val + " slowIndex is " + slowIndex.val);
-            }
+        while(head != null){
+            head = head.next;
+            curr = curr.next;
+            prev = prev.next;
         }
 
+        prev.next = curr.next;
 
-        if( slowIndex.next != null){
-            slowIndex.next = slowIndex.next.next;
-        }
-
-        return dummyNode.next;
+        return dummy.next;
     }
 }
