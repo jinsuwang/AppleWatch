@@ -20,7 +20,7 @@ public class MissingElementInSortedArray {
         // 二分查找缺失的第 k 个数字
         int left = 0, right = n - 1;
         while (left < right) {
-            int mid = left + (right - left) /
+            int mid = left + (right - left) / 2;
             if (missing(mid, nums) < k) {
                 left = mid + 1;
             } else {

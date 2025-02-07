@@ -1,7 +1,9 @@
 package com.samjin.backtracking;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Subsets {
 
@@ -21,22 +23,23 @@ public class Subsets {
             path.remove(path.size() - 1);
         }
     }
-}
 
 
-List<List<Integer>> res = new ArrayList<>();
-List<Integer> path = new ArrayList<>();
+    List<List<Integer>> res = new ArrayList<>();
+    LinkedList<Integer> path = new LinkedList<>();
 
-public List<List<Integer>> subsets(int[] nums) {
-    backtrace(nums, 0);
-    return res;
-}
+    public List<List<Integer>> subsets(int[] nums) {
+        backtrace(nums, 0);
+        return res;
+    }
 
-private void backtrace(int[] nums, int start){
-    res.add(new ArrayList<>(path));
-    for(int i = start; i < nums.length; i++){
-        path.add(nums[start]);
-        backtrace(nums, start+1);
-        path.removeLast();
+    private void backtrace(int[] nums, int start){
+        res.add(new ArrayList<>(path));
+        for(int i = start; i < nums.length; i++){
+            path.add(nums[start]);
+            backtrace(nums, start+1);
+            path.removeLast();
+        }
     }
 }
+

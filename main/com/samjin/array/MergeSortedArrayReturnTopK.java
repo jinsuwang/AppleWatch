@@ -22,10 +22,4 @@ public class MergeSortedArrayReturnTopK {
         }
         return res;
     }
-
-
-    public List<Integer> mergeSortedListReturnTopK(List<Integer> nums1, List<Integer> nums2, int k){
-
-
-    }
 }

@@ -5,8 +5,7 @@ public class Power {
         if(x == 0) return 0;
         if(n == 0) return 1;
         if(n < 0){
-            double ret = x * myPow(x, -(n+1) );
-            return 1/ret;
+            return 1 / myPow(x, -n);
         }
         double ret = myPow(x, n/2);
         ret = ret * ret;

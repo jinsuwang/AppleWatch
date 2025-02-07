@@ -13,12 +13,17 @@ import java.util.Stack;
         }
 
         public void push(int x) {
-            stack.push(x);
-            if (maxStack.isEmpty() || x >= maxStack.peek()) {
-                maxStack.push(x);
-            } else {
-                maxStack.push(maxStack.peek());
+            int max = Integer.MIN_VALUE;
+            if (!maxStack.isEmpty()) {
+                max = maxStack.peek();
             }
+
+            if (max > x) {
+                maxStack.push(max);
+            } else {
+                maxStack.push(x);
+            }
+            stack.push(x);
         }
 
         public int pop() {

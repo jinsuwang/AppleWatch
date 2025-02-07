@@ -163,4 +163,103 @@ public class BinaryTreeTraversal {
 
     }
 
+
+
+    public List<List<Integer>> verticalTraversal(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null)
+            return res;
+        helper2(root, 0);
+
+        for (int i = min; i <= max; i++) {
+            res.add(new ArrayList<>());
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<Integer> index = new LinkedList<>();
+
+        queue.offer(root);
+        index.offer(-min);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            Map<Integer, List<Integer>> map = new HashMap<>();
+
+            for (int i = 0; i < size; i++) {
+                TreeNode curr = queue.poll();
+                int currIndex = index.poll();
+                if (!map.containsKey(currIndex)) {
+                    map.put(currIndex, new ArrayList<>());
+                }
+                map.get(currIndex).add(curr.val);
+
+                // res.get(currIndex).add(curr.val);
+
+                if (curr.left != null) {
+                    queue.offer(curr.left);
+                    index.offer(currIndex - 1);
+                }
+
+                if (curr.right != null) {
+                    queue.offer(curr.right);
+                    index.offer(currIndex + 1);
+                }
+            }
+
+            for (Integer currIndex : map.keySet()) {
+                List<Integer> list = map.get(currIndex);
+                Collections.sort(list);
+                res.get(currIndex).addAll(list);
+            }
+        }
+
+        return res;
+    }
+
+    // 找到树的最左边和最右边
+    private void helper2(TreeNode root, int index) {
+        if (root == null)
+            return;
+        min = Math.min(min, index);
+        max = Math.max(max, index);
+        helper2(root.left, index - 1);
+        helper2(root.right, index + 1);
+    }
+
+
+    public List<List<Integer>> verticalOrderDFS(TreeNode root) {
+        // Map to store the nodes' values in each column
+        Map<Integer, List<Integer>> columnTable = new HashMap<>();
+        // Variable to store the range of the column index
+        int[] minMax = new int[2]; // minMax[0] = min column index, minMax[1] = max column index
+
+        // Perform DFS traversal
+        dfs(root, 0, 0, columnTable, minMax);
+
+        List<List<Integer>> result = new ArrayList<>();
+
+        // Process each column in increasing order
+        for (int col = minMax[0]; col <= minMax[1]; col++) {
+            result.add(columnTable.get(col));
+        }
+
+        return result;
+    }
+
+    private void dfs(TreeNode node, int row, int col, Map<Integer, List<Integer>> columnTable, int[] minMax) {
+        if (node == null) return;
+
+        // Update the range of column index
+        minMax[0] = Math.min(minMax[0], col);
+        minMax[1] = Math.max(minMax[1], col);
+
+        // Add the node's value to the corresponding column
+        columnTable.putIfAbsent(col, new ArrayList<>());
+        columnTable.get(col).add(node.val);
+
+        // Traverse the left and right children
+        dfs(node.left, row + 1, col - 1, columnTable, minMax);
+        dfs(node.right, row + 1, col + 1, columnTable, minMax);
+    }
+
 }
